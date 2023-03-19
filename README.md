@@ -1,4 +1,5 @@
 # Hetzner Cloud API
+![Tests passing](https://github.com/theo-rettisch/hcloud-ts/actions/workflows/node.js.yml/badge.svg)
 
 Typescript implementation of this api: https://docs.hetzner.cloud/
 
