@@ -14,7 +14,7 @@ Typescript implementation of this api: https://docs.hetzner.cloud/
 | [Placement group](https://docs.hetzner.cloud/#placement-groups) |
 | [Server](https://docs.hetzner.cloud/#servers)                   |
 
-### Example with axios backend:
+### Example with axios:
 
 ```typescript
 import axios from 'axios';
@@ -42,7 +42,7 @@ const request: HttpClientRequestMethod = <T>(props: HttpClientRequestMethodProps
 const hCloudClient = new HCloud(request);
 ```
 
-### Example with nodejs https backend:
+### Example with nodejs https:
 
 ```typescript
 import * as https from 'https';
@@ -86,7 +86,7 @@ const request: HttpClientRequestMethod = <T>(props: HttpClientRequestMethodProps
 const hCloudClient = new HCloud(request);
 ```
 
-### Example with fetch backend:
+### Example with fetch:
 
 ```typescript
 const request: HttpClientRequestMethod = <T>(props: HttpClientRequestMethodProps<T>): Promise<T> => {
