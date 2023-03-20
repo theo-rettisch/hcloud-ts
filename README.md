@@ -1,4 +1,4 @@
-# Hetzner Cloud API
+# Hetzner Cloud API Client
 ![Tests passing](https://github.com/theo-rettisch/hcloud-ts/actions/workflows/test.yml/badge.svg)
 
 Typescript implementation of this api: https://docs.hetzner.cloud/
@@ -58,7 +58,7 @@ const request: HttpClientRequestMethod = <T>(props: HttpClientRequestMethodProps
         if (res.statusCode !== 200) {
           reject(new Error(res.statusMessage));
         } else {
-          resolve(data as T);
+          resolve(JSON.parse(data) as T);
         }
       });
     });

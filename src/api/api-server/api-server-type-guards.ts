@@ -73,7 +73,8 @@ const isFirewallStatus = (value: unknown): value is FirewallStatus => {
 }
 
 const isNetworkFirewall = (value: unknown): value is NetworkFirewall => {
-  return isNumber((value as NetworkFirewall)?.id) && isFirewallStatus((value as NetworkFirewall)?.status);
+  const cast = value as NetworkFirewall;
+  return isNumber(cast.id) && isFirewallStatus(cast.status);
 }
 
 const isArrayOfNetworkFirewall = (value: unknown): value is Array<NetworkFirewall> => {
@@ -81,14 +82,16 @@ const isArrayOfNetworkFirewall = (value: unknown): value is Array<NetworkFirewal
 }
 
 const isIp = (value: unknown): value is IP => {
-  return isNumber((value as IP)?.id) &&
-    isString((value as IP)?.ip) &&
-    isBool((value as IP)?.blocked);
+  const cast = value as IP;
+  return isNumber(cast.id) &&
+    isString(cast.ip) &&
+    isBool(cast.blocked);
 }
 
 const isDnsPtr = (value: unknown): value is DNSPtr => {
-  return isString((value as DNSPtr)?.ip) &&
-    isString((value as DNSPtr)?.dns_ptr);
+  const cast = value as DNSPtr;
+  return isString(cast.ip) &&
+    isString(cast.dns_ptr);
 }
 
 const isArrayOfDnsPtr = (value: unknown): value is Array<DNSPtr> => {
@@ -96,20 +99,23 @@ const isArrayOfDnsPtr = (value: unknown): value is Array<DNSPtr> => {
 }
 
 const isIpv4 = (value: unknown): value is IPv4 => {
+  const cast = value as IPv4;
   return isIp(value) &&
-    isString((value as IPv4)?.dns_ptr);
+    isString(cast.dns_ptr);
 }
 
 const isIpv6 = (value: unknown): value is IPv6 => {
+  const cast = value as IPv6;
   return isIp(value) &&
-    isArrayOfDnsPtr((value as IPv6)?.dns_ptr);
+    isArrayOfDnsPtr(cast.dns_ptr);
 }
 
 const isServerPublicNetwork = (value: unknown): value is ServerPublicNetwork => {
-  return isArrayOfNetworkFirewall((value as ServerPublicNetwork)?.firewalls) &&
-    isArrayOfNumber((value as ServerPublicNetwork)?.floating_ips) &&
-    isIpv4((value as ServerPublicNetwork)?.ipv4) &&
-    isIpv6((value as ServerPublicNetwork)?.ipv6);
+  const cast = value as ServerPublicNetwork;
+  return isArrayOfNetworkFirewall(cast.firewalls) &&
+    isArrayOfNumber(cast.floating_ips) &&
+    isIpv4(cast.ipv4) &&
+    isIpv6(cast.ipv6);
 }
 
 const isArrayOfServerPublicNetwork = (value: unknown): value is Array<ServerPublicNetwork> => {
@@ -117,10 +123,11 @@ const isArrayOfServerPublicNetwork = (value: unknown): value is Array<ServerPubl
 }
 
 const isServerPrivateNetwork = (value: unknown): value is ServerPrivateNetwork => {
-  return isNumber((value as ServerPrivateNetwork)?.network) &&
-    isString((value as ServerPrivateNetwork)?.ip) &&
-    isArrayOfString((value as ServerPrivateNetwork)?.alias_ips) &&
-    isString((value as ServerPrivateNetwork)?.mac_address)
+  const cast = value as ServerPrivateNetwork;
+  return isNumber(cast.network) &&
+    isString(cast.ip) &&
+    isArrayOfString(cast.alias_ips) &&
+    isString(cast.mac_address)
 }
 
 const isArrayOfServerPrivateNetwork = (value: unknown): value is Array<ServerPrivateNetwork> => {
@@ -128,18 +135,21 @@ const isArrayOfServerPrivateNetwork = (value: unknown): value is Array<ServerPri
 }
 
 const isServerProtection = (value: unknown): value is ServerProtection => {
-  return isProtection(value) && isBool((value as ServerProtection)?.rebuild);
+  const cast = value as ServerProtection;
+  return isProtection(value) && isBool(cast.rebuild);
 }
 
 export const isPrice = (value: unknown): value is Price => {
-  return isString((value as Price)?.gross) &&
-    isString((value as Price)?.net);
+  const cast = value as Price;
+  return isString(cast.gross) &&
+    isString(cast.net);
 }
 
 const isServerTypePrice = (value: unknown): value is ServerTypePrice => {
-  return isString((value as ServerTypePrice)?.location) &&
-    isPrice((value as ServerTypePrice)?.price_hourly) &&
-    isPrice((value as ServerTypePrice)?.price_monthly)
+  const cast = value as ServerTypePrice;
+  return isString(cast.location) &&
+    isPrice(cast.price_hourly) &&
+    isPrice(cast.price_monthly)
 }
 
 const isArrayOfServerTypePrice = (value: unknown): value is Array<ServerTypePrice> => {

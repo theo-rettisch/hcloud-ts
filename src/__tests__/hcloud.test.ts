@@ -4,12 +4,13 @@ import ApiImageExtension from "../api/api-image/api-image-extension";
 import ApiIsoExtension from "../api/api-iso/api-iso-extension";
 import ApiNetworkExtension from "../api/api-network/api-network-extension";
 import ApiPlacementGroupExtension from "../api/api-placement-group/api-placement-group-extension";
-import HCloud from "../hcloud";
+import HCloud from "../index";
 
 describe('testing hcloud', () => {
   let hCloud: HCloud;
   beforeAll(() => {
-    hCloud = new HCloud(<T>() => Promise.resolve() as Promise<T>)
+    const cb = <T>() => Promise.resolve(null as T);
+    hCloud = new HCloud(cb)
   })
 
   test('hcloud can be instantiated', async () => {

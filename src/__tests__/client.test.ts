@@ -5,7 +5,8 @@ import {isString} from "../type-guards";
 describe('testing client', () => {
 
   test('client can be instantiated', async () => {
-    const client = new Client(<T>() => Promise.resolve() as Promise<T>);
+    const cb = <T>() => Promise.resolve(null as T);
+    const client = new Client(cb);
     expect(client).toBeInstanceOf(Client);
   });
 
@@ -15,8 +16,8 @@ describe('testing client', () => {
     }
 
     const resData: Res = {id: 123}
-
-    const client = new Client(<T = Res>(): Promise<T> => Promise.resolve(resData) as Promise<T>);
+    const cb = <T>() => Promise.resolve(resData as T);
+    const client = new Client(cb);
 
     const response = await client.get<Res>({
       path: '/test/',
@@ -37,8 +38,8 @@ describe('testing client', () => {
     }
 
     const resData: Res = {id: 123}
-
-    const client = new Client(<T = Res>(): Promise<T> => Promise.resolve(resData) as Promise<T>);
+    const cb = <T>() => Promise.resolve(resData as T);
+    const client = new Client(cb);
 
     const callGet = () => client.get<Res>({
       path: '/test/',

@@ -73,10 +73,6 @@ export const isArrayOfSort = (value: unknown): value is Array<Sort> => {
   return isArrayOf<Sort>(value, isSort);
 }
 
-export const isTypeguard = <T>(value: unknown): value is Typeguard<T> => {
-  return (value as any)?.constructor === Function;
-}
-
 export const isRecord = (value: unknown): value is Record<string, string> => {
   return typeof value === 'object' && isNotNull(value) && Object.values(value as Record<string, string>).every(isString);
 }

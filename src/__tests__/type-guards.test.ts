@@ -1,13 +1,4 @@
-import {
-  isArrayOfSort,
-  isNull,
-  isPagableRequest,
-  isProtection,
-  isSort,
-  isStatus,
-  isTypeguard,
-  isUndefined
-} from "../type-guards";
+import {isArrayOfSort, isNull, isPagableRequest, isProtection, isSort, isStatus, isUndefined} from "../type-guards";
 import {Protection, Sort, Status} from "../types";
 
 describe('testing generic type-guards', () => {
@@ -28,11 +19,6 @@ describe('testing generic type-guards', () => {
       delete: true
     }
     expect(isProtection(protection)).toBeTruthy();
-  })
-
-  test('function should be Typeguard', () => {
-    const tg = <T>(value: unknown): value is T => true;
-    expect(isTypeguard(tg)).toBeTruthy();
   })
 
   test('value should be null', () => {
