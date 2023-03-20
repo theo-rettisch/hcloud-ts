@@ -1,7 +1,18 @@
 # Hetzner Cloud API Client
-![Tests passing](https://github.com/theo-rettisch/hcloud-ts/actions/workflows/test.yml/badge.svg)
 
 Typescript implementation of this api: https://docs.hetzner.cloud/
+
+### Following extensions are available
+
+| API Extension                                                   |
+|-----------------------------------------------------------------|
+| [Datacenter](https://docs.hetzner.cloud/#datacenters)           |
+| [Firewall](https://docs.hetzner.cloud/#firewalls)               |
+| [Image](https://docs.hetzner.cloud/#images)                     |
+| [Iso](https://docs.hetzner.cloud/#isos)                         |
+| [Network](https://docs.hetzner.cloud/#networks)                 |
+| [Placement group](https://docs.hetzner.cloud/#placement-groups) |
+| [Server](https://docs.hetzner.cloud/#servers)                   |
 
 ### Example with axios backend:
 
