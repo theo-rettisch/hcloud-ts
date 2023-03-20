@@ -1,12 +1,15 @@
 {
   "name": "hcloud-ts",
   "version": "0.1.0",
-  "private": true,
   "description": "Hetzner Cloud API Client",
   "repository": {
     "url": "https://github.com/theo-rettisch/hcloud-ts"
   },
   "homepage": "https://github.com/theo-rettisch/hcloud-ts/#readme",
+  "author": {
+    "name": "theo-rettisch",
+    "email": "dev@theo-rettisch.de"
+  },
   "scripts": {
     "test-overall": "jest --coverage --coverageDirectory='coverage' --collectCoverageFrom='src/**/*'",
     "test-coverage": "jest --coverage --coverageDirectory='coverage'",
